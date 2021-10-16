@@ -1,0 +1,12 @@
+% padded paragraph
+\newcommand{\paragraphnl}[1]{\paragraph{#1}\mbox{}\\}
+
+% Stop minipage, figures & tables being shit
+\usepackage{etoolbox}                               
+\BeforeBeginEnvironment{minipage}{\par\vspace{5mm}} 
+\BeforeBeginEnvironment{table}{\par\vspace{2.5mm}}
+
+% Custom cross ref styles
+\Crefname{figure}{figure}{figures}
+\Crefname{table}{table}{tables}
+\Crefname{appsec}{appendix}{appendices}

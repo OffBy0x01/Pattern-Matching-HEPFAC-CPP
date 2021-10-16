@@ -1,0 +1,122 @@
+\documentclass[9pt]{article}
+    \usepackage[a4paper,left=2cm,right=2cm,top=2.5cm,bottom=2.5cm]{geometry}
+	\usepackage[utf8]{inputenc}
+	% Babel for correct hyphenation
+	\usepackage[UKenglish]{babel}
+	\usepackage{csquotes}
+	% Set bibtex for bibliography with Harvard style
+	\usepackage[backend=bibtex,style=authoryear]{biblatex}
+		\addbibresource{references}
+	% Set graphics library and set the directory to ./figures
+	\usepackage{graphicx}
+		\graphicspath{ {images/} }
+	% Package for spacing of the document. Paragraphs are 1.5, ToC is 1.
+	\usepackage{setspace}
+		\onehalfspacing
+	% Multi column Package for flexible multicols
+	\usepackage{multicol}
+	% Captioning for multi column
+	\usepackage{capt-of}
+	% Colour support
+	\usepackage{xcolor}
+	% Code listings
+	\usepackage{listings}
+	% Contextual References
+	\usepackage{hyperref}
+	\usepackage{cleveref}
+	% Appendix
+	\usepackage[toc,page]{appendix}
+	% My Commands
+    \input{commands.tex}
+    
+    \usepackage{todonotes}  
+
+\begin{document}
+	\begin{titlepage}
+		\centering
+		{\scshape\LARGE Abertay University \par}
+		\vspace{1cm}
+		{\scshape School of Design and informatics \par}
+		\vspace{1.5cm}
+		{\Large\bfseries An Investigation into GPGPU Optimizations for Network Intrusion Detection Systems\par}
+		\vspace{4cm}
+		{\Large\itshape Andrew R. Calder\par}
+		\vfill
+		supervised by\par
+		Dr. Xavier \textsc{Bellekens}
+		\vfill
+		{\large \today\par}
+		\end{titlepage}
+	% Preamble
+	\section* {Acknowledgements}
+        \input{chapters/acknowledgements.tex}
+        \thispagestyle{empty}
+		\clearpage
+
+	\section*{Abstract}
+		\input{chapters/abstract.tex}
+		\thispagestyle{empty}
+		\clearpage
+		
+	% Table of Contents & List of Tables and Figures
+	\singlespacing
+	\tableofcontents
+	\thispagestyle{empty}
+	\clearpage
+    \setcounter{tocdepth}{1} 
+	\listoffigures
+	%\addcontentsline{toc}{section}{\protect\numberline{}List of Figures}%
+	\listoftables
+	%\addcontentsline{toc}{section}{\protect\numberline{}List of Tables}%
+	\thispagestyle{empty}
+	\clearpage
+	\onehalfspacing
+	\pagenumbering{arabic}
+	
+	% -------------------------
+	% --Main body of document--
+    % -------------------------
+    
+    % Start using 2 columns
+    %%\begin{multicols}{2}
+
+	% Include Introduction file
+	\section{Introduction}
+	    \input{chapters/introduction.tex}
+		\clearpage
+		
+	% Include Literature file
+	\section{Literature Review}
+		\input{chapters/literature.tex}
+		\clearpage
+		
+	% Include Methodology file	
+	\section{Methodology}
+    	\input{chapters/methodology.tex}
+		\clearpage
+		
+	\section{Results}
+	    \input{chapters/results.tex}    
+		\clearpage
+		
+	\section{Discussion}
+    	\input{chapters/discussion.tex}
+		\clearpage
+		
+	\section{Conclusions}
+        \input{chapters/conclusion.tex}
+		\clearpage
+		
+	% References
+	\section{References}
+	    \setlength\bibitemsep{0.5\baselineskip}
+		\printbibliography[heading=none]
+		%\clearpage
+	
+	% Appendices
+	\begin{appendices}
+    \addtocontents{toc}{\protect\setcounter{tocdepth}{0}}
+        \input{chapters/appendix.tex}
+    \end{appendices}
+   
+\end{document}
